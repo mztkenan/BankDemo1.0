@@ -5,18 +5,23 @@
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	SavingAccount sa0(1,21325302,0.015);
-	SavingAccount sa1(1,58320212,0.015);
+	Date date(2008, 11, 1);
+	SavingAccount accounts[] = { SavingAccount(date,"03755117",0.015),SavingAccount(date,"02342342",0.015) };
+	const int n = sizeof(accounts) / sizeof(SavingAccount);
 
-	sa0.deposit(5,5000);
-	sa1.deposit(25,10000);
-	sa0.deposit(45,5500);
-	sa1.withdraw(60,4000);
+	accounts[0].deposit(Date(2008, 11, 5), 5000, "salary");
+	accounts[1].deposit(Date(2008, 11, 25), 10000, "sell stock 0323");
+	accounts[0].deposit(Date(2008, 12, 5), 5500, "salary");
+	accounts[1].withdraw(Date(2008, 12, 30), 4000, "buy an iphone7");
 
-	sa0.settle(90);
-	sa1.settle(90);
-	sa0.show();
-	sa1.show();
+	cout << endl;
+
+	for (int i = 0;i < n;i++) {
+		accounts[i].settle(Date(2009, 1, 1));
+		accounts[i].show();
+		cout << endl;
+	}
+	cout << "Total:" << SavingAccount::getTotal() << endl;
 	return 0;
 }
 

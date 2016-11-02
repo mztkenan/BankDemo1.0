@@ -1,25 +1,29 @@
 
 #ifndef ACCOUNT_H
 #define ACCOUNT_H 
+#include "Date.h"
   class SavingAccount
   {
   private:
-	  int id;
+	  std::string id;
 	  double balance;
 	  double rate;
-	  int lastDate;
+	  Date lastDate;
 	  double accumulation;
-	  void record(int date,double amount);
-	  double accumulate(int date)const{return accumulation+balance*(date-lastDate);}
+	  static double total;
+	  void record(const Date &date,double amount,const std::string &desc);
+	  void error(const std::string &msg)const;
+	  double accumulate(const Date& date)const { return accumulation + balance * date.distance(lastDate); }
 
   public:
-	  SavingAccount(int date,int id,double rate);
-	  int getId(){return id;}
-	  double getBalance(){return balance;}
-	  double getRate(){return rate;}
-	  void deposit(int date,double amount);
-	  void withdraw(int date,double amount);
-	  void settle(int date);
-	  void show();
+	  SavingAccount(const Date &date,const std::string id,double rate);
+	  const std::string getId() const {return id;}
+	  double getBalance()const {return balance;}
+	  double getRate()const {return rate;}
+	  static double getTotal() { return total; }
+	  void deposit(const Date &date,double amount,const std::string desc);
+	  void withdraw(const Date &date,double amount,const std::string desc);
+	  void settle(const Date &date);
+	  void show() const;
   };
 #endif
