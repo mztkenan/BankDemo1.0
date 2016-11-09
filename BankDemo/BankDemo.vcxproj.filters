@@ -24,10 +24,13 @@
     <ClInclude Include="targetver.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SavingAccount.h">
+    <ClInclude Include="Date.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Date.h">
+    <ClInclude Include="Accumulator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Account.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -38,10 +41,10 @@
     <ClCompile Include="BankDemo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="SavingAccount.cpp">
+    <ClCompile Include="Date.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Date.cpp">
+    <ClCompile Include="Account.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
